@@ -300,6 +300,12 @@ def precentacion():
     print('Es una demostracion de una matriz inversa en Python')
 
 
+def despedida():
+    print('Muchas gracias por correr este codigo')
+    print('me hacia ilucion :3')
+    print('twitter para sugerencias: @JosMaraOrozcoS1.')
+
+
 if __name__ == '__main__':
     precentacion()
     a = Matriz_Cuadrada('A', 3)
@@ -307,3 +313,4 @@ if __name__ == '__main__':
     a_inv = Matriz_Cuadrada('A^-1', 3)
     a.agregar_Inversa(a)
     a.imprimir_Matriz()
+    despedida()
