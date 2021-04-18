@@ -300,4 +300,12 @@ def precentacion():
 
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     precentacion()
+=======
+    a = Matriz_Cuadrada('A', 3)
+    a.elem_Random()
+    a_inv = Matriz_Cuadrada('A^-1', 3)
+    a.agregar_Inversa(a)
+    a.imprimir_Matriz()
+>>>>>>> interfaz
