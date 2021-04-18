@@ -297,6 +297,7 @@ class Matriz_Cuadrada(Matriz):
 def precentacion():
     print('Bienvenido a mi codigo')
     print('me llamo Jose y esta es un proyecto en el que he estado trabajando')
+    print('Es una demostracion de una matriz inversa en Python')
 
 
 if __name__ == '__main__':
