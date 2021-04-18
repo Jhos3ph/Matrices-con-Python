@@ -302,6 +302,7 @@ def precentacion():
 
 def despedida():
     print('Muchas gracias por correr este codigo')
+    print('twitter para sugerencias: @JosMaraOrozcoS1')
     print('me hacia ilucion :3')
 
 
