@@ -296,5 +296,5 @@ class Matriz_Cuadrada(Matriz):
 
 if __name__ == '__main__':
     a = Matriz_Cuadrada('A', 3)
-    a.elem_Random()
+    a.elementos_por_teclado()
     a.imprimir_Matriz()
