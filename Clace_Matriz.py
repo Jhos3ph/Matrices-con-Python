@@ -294,7 +294,10 @@ class Matriz_Cuadrada(Matriz):
         return fila_optima
 
 
+def precentacion():
+    print('Bienvenido a mi codigo')
+    print('me llamo Jose y esta es un proyecto en el que he estado trabajando')
+
+
 if __name__ == '__main__':
-    a = Matriz_Cuadrada('A', 3)
-    a.elementos_por_teclado()
-    a.imprimir_Matriz()
+    precentacion()
