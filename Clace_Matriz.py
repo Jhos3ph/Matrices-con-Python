@@ -147,7 +147,7 @@ class Matriz:
 
 
     def sumar_filas(self, fila_a_modificar, fila2, escalar, matriz):
-        print(f'---{self.nombre}{fila_a_modificar}{fila2}({escalar})---')
+        print(f'---A{fila_a_modificar}{fila2}({escalar})---')
         new_matriz = []
         constante = Numero_Racional(escalar)
         fila_mult =[]
@@ -260,15 +260,23 @@ class Matriz_Cuadrada(Matriz):
             identidad = self.matriz_Identidad(len(matriz_ejerc))
             for columna in range(len(identidad)):
                 if matriz_ejerc[columna][columna] == '0':
-                    matriz_ejerc = self.permutar_filas(self.fila_optima(columna, columna, matriz_ejerc), columna, matriz_ejerc)
+                    fila_permutar = self.fila_optima(columna, columna, matriz_ejerc)
+                    matriz_ejerc = self.permutar_filas(fila_permutar+1, columna+1, matriz_ejerc)
+                    imprimir_elems(matriz_ejerc)
+                    identidad = self.permutar_filas(fila_permutar+1, columna+1, identidad)
+                    imprimir_elems(identidad)
                 elem_princip = Numero_Racional(matriz_ejerc[columna][columna])
                 matriz_ejerc = self.multiplicar_fila(columna+1, elem_princip.invertirso(), matriz_ejerc)
+                imprimir_elems(matriz_ejerc)
                 identidad = self.multiplicar_fila(columna+1, elem_princip.invertirso(), identidad)
+                imprimir_elems(identidad)
                 for fila in range(len(identidad)):
                     if fila != columna:
                         elemento = Numero_Racional(matriz_ejerc[fila][columna])
                         matriz_ejerc = self.sumar_filas(fila+1, columna+1, elemento.multiplicar_dividir('-1'), matriz_ejerc)
+                        imprimir_elems(matriz_ejerc)
                         identidad = self.sumar_filas(fila+1, columna+1, elemento.multiplicar_dividir('-1'), identidad)
+                        imprimir_elems(identidad)
             self.elementos = list(identidad)
 
 
@@ -289,9 +297,14 @@ class Matriz_Cuadrada(Matriz):
         fila_optima = None
         for i in range(fila+1, len(elementos)):
             if elementos[i][columna] != '0':
-                fila_optima = elementos[i][columna]
+                fila_optima = i
                 break
         return fila_optima
+
+
+def imprimir_elems(lista):
+    for fila in lista:
+        print(fila)
 
 
 def precentacion():
@@ -309,8 +322,8 @@ def despedida():
 if __name__ == '__main__':
     precentacion()
     a = Matriz_Cuadrada('A', 3)
-    a.elem_Random()
+    a.elementos_por_teclado()
     a_inv = Matriz_Cuadrada('A^-1', 3)
-    a.agregar_Inversa(a)
-    a.imprimir_Matriz()
+    a_inv.agregar_Inversa(a)
+    a_inv.imprimir_Matriz()
     despedida()
